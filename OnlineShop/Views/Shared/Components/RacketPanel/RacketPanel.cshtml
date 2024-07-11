@@ -1,0 +1,15 @@
+﻿@using OnlineStore.Models
+
+@model RacketEntity
+
+<a class="a-racket" href="/racket/@Model.id">
+    <div class="card" style="width: 18rem;">
+        <img src="@Model.image_url" class="card-img-top" alt="">
+        <span class="racket-brand">
+            @Model.brand
+        </span> 
+        <div class="card-body">
+            <span class="card-text">@Model.name</span>
+        </div>
+    </div>
+</a>

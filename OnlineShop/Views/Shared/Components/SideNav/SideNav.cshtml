@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section id ="sidenav" class="hide">
+    <section class="racket-filter"> 
+        <div class="filter-title">
+            <span>Brands</span><span onclick="closeFilter()" id="filter-close">+</span>
+        </div>
+
+        <div class="filter-body">
+            <div class="form-check">
+                <input class="form-check-input filter-option" name="BABOLAT" type="checkbox" value="" id="flexCheckDefault" onClick="">
+                <label class="form-check-label" for="flexCheckDefault">
+                   BABOLAT
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option" name="WILSON" type="checkbox" value="" id="flexCheckDefault" onClick="">
+                <label class="form-check-label" for="flexCheckDefault">
+                    WILSON
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option" name="HEAD" type="checkbox" value="asddd" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    HEAD
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option" name="YONEX" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    YONEX
+                </label>
+             </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option" name="TECNIFIBRE" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    TECNIFIBRE
+                </label>
+            </div>
+        </div>
+    </section>
+    <section class="racket-filter">
+        <div class="filter-title">
+            <span>Grip Size</span><span onclick="closeFilter()" id="filter-close">+</span>
+        </div>
+
+        <div class="filter-body">
+            <div class="form-check">
+                <input class="form-check-input filter-option"   type="checkbox" value="" id="flexCheckDefault" onClick="">
+                <label class="form-check-label" for="flexCheckDefault">
+                    4
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option"  type="checkbox" value="" id="flexCheckDefault" onClick="">
+                <label class="form-check-label" for="flexCheckDefault">
+                    4 1/8
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option"   type="checkbox" value="asddd" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    4 1/4
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option"   type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    4 3/8
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option"  type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    4 1/2
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input filter-option" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    4 5/8
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <div id="apply-but" onClick="ApplyFilter()">Applyyy</div>
+</section>
+
+<section id = "sideNav-mobile" >
+    <div id="filter-but-mobile" onClick="showOrHideFilter()">Filter</div>
+    <div id="apply-but-mobile" onClick="ApplyFilter('mobile')">Apply</div>
+</section>
+
+ 

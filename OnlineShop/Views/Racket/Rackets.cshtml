@@ -1,0 +1,33 @@
+﻿@using OnlineStore.Models
+ 
+@model List<RacketResponse>
+
+@await Component.InvokeAsync("SideNav")
+
+<div class="seprator"></div>
+<div class="main-racket-content">
+        <div class="sort-filter">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                    Sort
+                </button>
+                <ul class="dropdown-menu">
+                    <li><span class="sort-button dropdown-item" href="#" onclick="SortData(event)" data-selected="1" data-sort="def">Featured items</span></li>
+                    <li><span class="sort-button dropdown-item" href="#" onclick="SortData(event)" data-selected="0" data-sort="asc">Price Low to High</span></li>
+                    <li><span class="sort-button dropdown-item" href="#" onclick="SortData(event)" data-selected="0" data-sort="desc">Price High to Low</span></li>
+                </ul>
+            </div>
+        </div>
+     
+    <div id="racket-content"> 
+       @*  @{
+            foreach(RacketResponse racket in Model)
+            {
+                @await Component.InvokeAsync("RacketPanel", new RacketEntity(racket.Id ,racket.Name, racket.ImageUrl, racket.Price, racket.Brand))
+            }
+        } *@
+    </div>
+</div>
+
+<script src="~/js/LoadRackets.js" asp-append-version="true"></script>
+ 
