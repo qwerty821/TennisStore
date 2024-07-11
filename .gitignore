@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+OnlineShop\Models\DbModels\OnlineStoreContext.cs
+OnlineShop\appsettings.json
