@@ -10,5 +10,7 @@ namespace OnlineStore.Abstractions
         Task<List<Racket>> GetAll();
         Task<List<Racket>> GetAll(FilterOptions filterOptions);
         Task<Guid> Add(Racket racket);
+
+        Task<Racket> Get(Guid id);
     }
 }

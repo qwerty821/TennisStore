@@ -38,12 +38,14 @@ namespace OnlineShop
 
                 options.SignIn.RequireConfirmedEmail = false;
 
+
             }).AddEntityFrameworkStores<OnlineStoreContext>();
 
             builder.Services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "/Account/Login"; 
-                 
+                options.LoginPath = "/Account/Login";
+                options.ExpireTimeSpan = TimeSpan.FromSeconds(10);
+                options.SlidingExpiration = true;
             });
 
             builder.Services.AddScoped<PasswordHasher<OnlineStoreUser>>();

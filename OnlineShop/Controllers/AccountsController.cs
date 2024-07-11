@@ -100,34 +100,34 @@ namespace OnlineStore.Controllers
             var user = await userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                // Utilizatorul nu a fost găsit în baza de date
                 ModelState.AddModelError(string.Empty, "Invalid login attempt. User not found.");
                 Console.WriteLine("User not found");
                 return View(model);
             }
 
-            var passwordCheck = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
-            if (passwordCheck == PasswordVerificationResult.Success)
-            {
+            //var passwordCheck = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
+            //if (passwordCheck == PasswordVerificationResult.Success)
+            //{
+               
                 var signInResult = await signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (signInResult.Succeeded)
                 {
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
-                else
-                {
-                    Console.WriteLine($"Login failed: {signInResult}");
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Password verification failed");
-
+                //else
+                //{
+                Console.WriteLine($"Login failed: {signInResult}");
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 return View(model);
-            }
+                //}
+            //}
+            //else
+            //{
+            //Console.WriteLine("Password verification failed");
+
+            //ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            //return View(model);
+            //}
         }
         [HttpGet]
         [Authorize]

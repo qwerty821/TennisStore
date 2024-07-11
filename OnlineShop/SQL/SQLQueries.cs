@@ -71,5 +71,17 @@ namespace OnlineStore.SQL
             }
             return new List<Racket>() { };
         }
+
+        public static async Task<Racket> get(Guid id)
+        {
+            string sqlQuery = $@"Select * FROM Rackets 
+                                    Where r_id = '{id}'";
+            using (OnlineStoreContext db = new OnlineStoreContext())
+            {
+                var sqlRes = await db.Rackets.FromSqlRaw(sqlQuery).ToListAsync();
+                var racket = sqlRes[0];
+                return racket;
+            }
+        }
     }
 }

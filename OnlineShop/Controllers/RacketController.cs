@@ -49,7 +49,6 @@ namespace OnlineShop.Controllers
         [Route("/all-rackets")]
         public async Task<JsonResult> GetRacketsByFilter([FromQuery] BrandRequest request)
         {
-            await Console.Out.WriteLineAsync("sortOption" + request.SortOption);
 
             if (request.brands.IsNullOrEmpty() && request.SortOption.IsNullOrEmpty())
             {
@@ -77,6 +76,13 @@ namespace OnlineShop.Controllers
             return Json(response);
         }
 
+        [Route("/get-racket")]
+        public async Task<JsonResult> GetRacket([FromQuery] RacketRequest request)
+        {
+            var racket = await _racketService.Get(request.Id);
+            await Console.Out.WriteLineAsync(racket.RName);
+            return Json(racket);
+        } 
         public async Task<JsonResult> GetAllRackets()
         {
             var rackets = await _racketService.GetAll();

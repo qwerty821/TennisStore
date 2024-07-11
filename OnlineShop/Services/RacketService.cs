@@ -28,5 +28,10 @@ namespace OnlineStore.Services
             return await _racketRepository.Add(racket);
         }
 
+        public async Task<Racket> Get(Guid id)
+        {
+            return await _racketRepository.Get(id);
+        }
+
     }
 }

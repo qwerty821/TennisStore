@@ -1,1 +1,40 @@
-﻿<p>Racket page</p>
+﻿<section id="racket-panel">
+    <div class="racket-view">
+
+    </div>
+    <div class="racket-order">
+
+    </div>
+</section>
+
+<script>
+    window.onload = showRacketPanel();
+
+    function GetRacket() {
+
+        var url = window.location.href;
+
+        var pathname = new URL(url).pathname;
+
+        var segments = pathname.split('/');
+        var id = segments[segments.length - 1];
+
+        var data = {
+            'id': id
+        }
+
+        var url = `/get-racket?${new URLSearchParams(data).toString()}`;
+
+        return fetch(url, {
+            method: "GET"
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+            return data;
+        });
+    }
+
+    function showRacketPanel() {
+        console.log(GetRacket());
+    }
+</script>

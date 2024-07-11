@@ -36,6 +36,10 @@ namespace OnlineStore.Repositories
             return racket.RId;
         }
 
-        
+        public async Task<Racket> Get(Guid id)
+        {
+            var r = await SQLQueries.get(id);
+            return r;
+        }
     }
 }
