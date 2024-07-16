@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineStore.Models.RacketsModels;
 
@@ -16,4 +17,7 @@ public partial class Racket
     public string RImageUrl { get; set; } = null!;
 
     public virtual Brand? RBrandNavigation { get; set; }
+
+    [NotMapped]
+    public List<Image> images { get; set; }
 }

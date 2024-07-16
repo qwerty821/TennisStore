@@ -1,3 +1,10 @@
+Create DataBase OnlineShop;
+GO
+
+use OnlineShop;
+GO
+
+
 CREATE TABLE Brands (
 	b_id UNIQUEIDENTIFIER NOT NULL,
 	b_name varchar(50) NOT NULL,
@@ -17,3 +24,7 @@ CREATE TABLE Rackets(
 	CONSTRAINT FK_Brands_To_Rackets FOREIGN KEY (r_brand)  REFERENCES BRANDS (b_id)
 );
 
+Create Table Images (
+	id UNIQUEIDENTIFIER NOT NULL,
+	image_url varchar(500) NOT NULL
+);

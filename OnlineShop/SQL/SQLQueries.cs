@@ -74,14 +74,24 @@ namespace OnlineStore.SQL
 
         public static async Task<Racket> get(Guid id)
         {
-            string sqlQuery = $@"Select * FROM Rackets 
+            string sqlQueryRacket = $@"Select * FROM Rackets 
                                     Where r_id = '{id}'";
+
+            string sqlQueryImages = $@"Select * FROM Images
+                                    Where id = '{id}'";
+
+            Racket r;
             using (OnlineStoreContext db = new OnlineStoreContext())
             {
-                var sqlRes = await db.Rackets.FromSqlRaw(sqlQuery).ToListAsync();
-                var racket = sqlRes[0];
-                return racket;
+                var sqlRes = await db.Rackets.FromSqlRaw(sqlQueryRacket).ToListAsync();
+                r = sqlRes[0];
+
+                var imagesRes = await db.Images.FromSqlRaw(sqlQueryImages).ToListAsync(); 
+                
+                r.images = imagesRes;
             }
+
+            return r;
         }
     }
 }

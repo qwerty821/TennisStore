@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineStore.Models.DbModels;
 
@@ -11,9 +12,11 @@ using OnlineStore.Models.DbModels;
 namespace OnlineStore.Migrations
 {
     [DbContext(typeof(OnlineStoreContext))]
-    partial class OnlineStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240711182027_img")]
+    partial class img
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,22 +247,6 @@ namespace OnlineStore.Migrations
                         .HasName("PK_Brand_Id");
 
                     b.ToTable("Brands");
-                });
-
-            modelBuilder.Entity("OnlineStore.Models.RacketsModels.Image", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("id");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(500)")
-                        .HasColumnName("image_url");
-
-                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("OnlineStore.Models.RacketsModels.Racket", b =>

@@ -75,14 +75,19 @@ namespace OnlineShop.Controllers
             }
             return Json(response);
         }
-
+        
         [Route("/get-racket")]
         public async Task<JsonResult> GetRacket([FromQuery] RacketRequest request)
         {
             var racket = await _racketService.Get(request.Id);
             await Console.Out.WriteLineAsync(racket.RName);
+            foreach (Image l in racket.images)
+            {
+                await Console.Out.WriteLineAsync(l.ImageUrl);
+            }
             return Json(racket);
         } 
+
         public async Task<JsonResult> GetAllRackets()
         {
             var rackets = await _racketService.GetAll();
