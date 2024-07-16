@@ -401,3 +401,4 @@ OnlineShop\Models\DbModels\OnlineStoreContext.cs
 OnlineShop\appsettings.json
 /OnlineShop/appsettings.json
 /OnlineShop/Models/DbModels/OnlineStoreContext.cs
+/OnlineShop/appsettings.Development.json
