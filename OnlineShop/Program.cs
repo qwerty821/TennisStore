@@ -7,6 +7,8 @@ using OnlineStore.Services;
 using Microsoft.AspNetCore.Identity;
 using OnlineStore.Models.DbModels;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Hosting;
+using System.Security.Cryptography.X509Certificates;
 
 namespace OnlineShop
 {
@@ -14,6 +16,10 @@ namespace OnlineShop
     {
         public static void Main(string[] args)
         {
+
+            //Host.CreateDefaultBuilder(args)
+            //   .ConfigureWebHostDefaults(webBuilder =>{});
+
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
@@ -52,7 +58,7 @@ namespace OnlineShop
 
             var app = builder.Build();
 
-            
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

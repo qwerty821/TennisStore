@@ -23,8 +23,6 @@ public class OnlineStoreContext : IdentityDbContext<OnlineStoreUser>
 
     public virtual DbSet<Racket> Rackets { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-      //=> optionsBuilder.UseSqlServer("Server=tcp:sqlserverrackets.database.windows.net,1433;Initial Catalog=OnlineShop;Persist Security Info=False;User ID=qwerty821;Password=Asdfg132435;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-     // => optionsBuilder.UseSqlServer("Server=QWERTY821;Database=OnlineShop;User=SA;Password=Asdfg132435;TrustServerCertificate=True;");
         //for docker compose
         => optionsBuilder.UseSqlServer("Server=sqlserver;Database=OnlineShop;User=sa;Password=Asdfg12345;TrustServerCertificate=True;");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
