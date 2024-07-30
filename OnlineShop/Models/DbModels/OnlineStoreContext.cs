@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Abstractions;
-using OnlineStore.Models.AccountsModels;
-using OnlineStore.Models.RacketModels;
 using OnlineStore.Models.RacketsModels;
-using System.Reflection.Emit;
 
 namespace OnlineStore.Models.DbModels;
 
@@ -17,17 +12,15 @@ public class OnlineStoreContext : IdentityDbContext<OnlineStoreUser>
     {
     }
 
-   
     public virtual DbSet<Brand> Brands { get; set; }
     public virtual DbSet<Image> Images { get; set; }
-
     public virtual DbSet<Racket> Rackets { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //for docker compose
-        => optionsBuilder.UseSqlServer("Server=sqlserver;Database=OnlineShop;User=sa;Password=Asdfg12345;TrustServerCertificate=True;");
+        //=> optionsBuilder.UseSqlServer("Server=sqlserver;Database=OnlineShop;User=sa;Password=Asdfg12345;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=OnlineShop;User=sa;Password=Asdfg12345;TrustServerCertificate=True;");    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        
         modelBuilder.Entity<Brand>(entity =>
         {
             entity.HasKey(e => e.BId).HasName("PK_Brand_Id");
@@ -35,10 +28,17 @@ public class OnlineStoreContext : IdentityDbContext<OnlineStoreUser>
             entity.Property(e => e.BId)
                 .ValueGeneratedNever()
                 .HasColumnName("b_id");
+
+            entity.Property(e => e.BImage)
+               .HasMaxLength(500)
+               .IsUnicode(false)
+               .HasColumnName("b_image");
+
             entity.Property(e => e.BName)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("b_name");
+            
         });
 
         modelBuilder.Entity<Racket>(entity =>
@@ -74,6 +74,7 @@ public class OnlineStoreContext : IdentityDbContext<OnlineStoreUser>
                     .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("image_url");
+                entity.Property(e => e.RefId).HasColumnName("ref_id");
             });
         });
 

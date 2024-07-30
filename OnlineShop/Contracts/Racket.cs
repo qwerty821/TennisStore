@@ -1,6 +1,8 @@
-﻿namespace OnlineStore.Contracts
+﻿using OnlineStore.Models.RacketsModels;
+
+namespace OnlineStore.Contracts
 {
-    public record RacketResponse(
+    public record Racket(
         Guid Id,
         string Name, 
         string Brand,
@@ -13,8 +15,9 @@
         string Name,
         string Brand,
         decimal Price,
-        List<string> ImageUrl,
-        string Desc
+        List<Image> Images,
+        string Desc,
+        string ImageUrl
     );
     public record RacketRequest(
         Guid Id

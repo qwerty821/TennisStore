@@ -1,4 +1,4 @@
-﻿namespace OnlineStore.Models.RacketModels
+﻿namespace OnlineStore.Models.RacketsModels
 {
     public class FilterOptions
     {

@@ -8,9 +8,14 @@ namespace OnlineStore.Contracts
     {
         [JsonPropertyName("brand")]
         [FromQuery(Name = "brand")]
-        public string brands {  get; set; }
+        public string brands { get; set; }
 
         [FromQuery(Name = "sort")]
         public string SortOption { get; set; }
     }
+
+    public record BrandResponse (
+        string Name,
+        string Image
+    );
 }

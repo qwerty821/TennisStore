@@ -12,15 +12,15 @@ using OnlineStore.Models.DbModels;
 namespace OnlineStore.Migrations
 {
     [DbContext(typeof(OnlineStoreContext))]
-    [Migration("20240714082831_localMig")]
-    partial class localMig
+    [Migration("20240721090026_m1")]
+    partial class m1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.6")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -181,9 +181,6 @@ namespace OnlineStore.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("IP")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -235,6 +232,13 @@ namespace OnlineStore.Migrations
                     b.Property<Guid>("BId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("b_id");
+
+                    b.Property<string>("BImage")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)")
+                        .HasColumnName("b_image");
 
                     b.Property<string>("BName")
                         .IsRequired()

@@ -1,197 +1,107 @@
-﻿<section id="racket-panel">
-    <main class="cd__main">
-      
-        <div class="container my-5">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="main-img">
-                        @* <img class="img-fluid example-2 image" src=" " alt="ProductS"> *@
-                        <div class="row my-3 previews" id="product-images">
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-                        </div>
+﻿
+@if ((bool)(ViewData["found"] ?? false) == true)
+{
+    <section id="racket-panel">
+    <div class="card-wrapper">
+        <div class="card-product">
+            <!-- card left -->
+            <div class="product-imgs">
+                <div class="img-display">
+                    <div class="img-showcase">
+                        <img class="r-img1" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt="shoe image">
+                        <img class="r-img1" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" alt="shoe image">
+                        <img class="r-img1" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" alt="shoe image">
+                        <img class="r-img1" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg" alt="shoe image">
                     </div>
                 </div>
-                <div class="col-md-7">
-                    <div class="main-description px-2">
-                        <div class="category text-bold">
-                            Category: Racket
-                        </div>
-                        <div class="product-title text-bold my-3">
-                           Racket info
-                        </div>
-
-
-                        <div class="price-area my-4">
-                            <p class="old-price mb-1"><del>$100</del> <span class="old-price-discount text-danger">(20% off)</span></p>
-                            <p class="new-price text-bold mb-1">$80</p>
-                            <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
-
-                        </div>
-
-
-                        <div class="buttons d-flex my-5">
-                            <div class="block">
-                                <a href="#" class="shadow btn custom-btn ">Wishlist</a>
-                            </div>
-                            <div class="block">
-                                <button class="shadow btn custom-btn">Add to cart</button>
-                            </div>
-
-                            <div class="block quantity">
-                                <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max="5" placeholder="Enter email" name="cart_quantity">
-                            </div>
-                        </div>
-
-
-
-
+                <div class="img-select">
+                    <div class="img-item">
+                        <a href="#" data-id="1">
+                            <img class="r-img2" src=" " alt="shoe image">
+                        </a>
                     </div>
-
-                    <div class="product-details my-4">
-                        <p class="details-title text-color mb-1">Product Details</p>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi odio recusandae aliquid ad impedit autem commodi earum voluptatem laboriosam? </p>
+                    <div class="img-item">
+                        <a href="#" data-id="2">
+                            <img class="r-img2" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" alt="shoe image">
+                        </a>
                     </div>
-
-                    <div class="row questions bg-light p-3">
-                        <div class="col-md-1 icon">
-                            <i class="fa-brands fa-rocketchat questions-icon"></i>
-                        </div>
-                        <div class="col-md-11 text">
-                            Have a question about our products at E-Store? Feel free to contact our representatives via live chat or email.
-                        </div>
+                    <div class="img-item">
+                        <a href="#" data-id="3">
+                            <img class="r-img2" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" alt="shoe image">
+                        </a>
                     </div>
-
-                    <div class="delivery my-4">
-                        <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-truck"></i></span> <b>Delivery done in 3 days from date of purchase</b> </p>
-                        <p class="text-secondary">Order now to get this product delivery</p>
-                    </div>
-                    <div class="delivery-options my-4">
-                        <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>Delivery options</b> </p>
-                        <p class="text-secondary">View delivery options here</p>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="container similar-products my-4">
-            <hr>
-            <p class="display-5">Similar Products</p>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="similar-product">
-                        <img class="w-100" src=" " alt="Preview">
-                        <p class="title">Lovely black dress</p>
-                        <p class="price">$100</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="similar-product">
-                        <img class="w-100" src=" " alt="Preview">
-                        <p class="title">Lovely Dress with patterns</p>
-                        <p class="price">$85</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="similar-product">
-                        <img class="w-100" src=" " alt="Preview">
-                        <p class="title">Lovely fashion dress</p>
-                        <p class="price">$200</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="similar-product">
-                        <img class="w-100" src=" " alt="Preview">
-                        <p class="title">Lovely red dress</p>
-                        <p class="price">$120</p>
+                    <div class="img-item">
+                        <a href="#" data-id="4">
+                            <img class="r-img2" src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg" alt="shoe image">
+                        </a>
                     </div>
                 </div>
             </div>
+            <!-- card right -->
+            <div class="product-content">
+                <h2 class="product-title"></h2>
+                <a href="#" class="product-link"></a>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.7(21)</span>
+                </div>
+
+                <div class="product-price">
+                    <p class="current-price" style="color:red">Price: </p>
+                </div>
+
+                <div class="product-detail">
+                    <h2>about this item: </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+                    <ul>
+                        
+                    </ul>
+                </div>
+
+                <div class="purchase-info">
+                    <input type="number" min="0" value="1">
+                    <button type="button" class="btn">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="btn">Compare</button>
+                </div>
+
+                <div class="social-links">
+                    <p>Share At: </p>
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <img class="img-fluidd example-2 image" src=" " alt="ProductS">
+    </section>
 
-</section>
+    <script src="~/js/Racket.js" asp-append-version="true"></script>
 
-<script src="~/js/extm.js"></script>
-
-
-
-    <script>
-
-
-
-    window.onload = showRacketPanel();
-
-    function GetRacket() {
-
-        var url = window.location.href;
-
-        var pathname = new URL(url).pathname;
-
-        var segments = pathname.split('/');
-        var id = segments[segments.length - 1];
-
-        var data = {
-            'id': id
-        }
-
-        var url = `/get-racket?${new URLSearchParams(data).toString()}`;
-
-        return  fetch(url, {
-            method: "GET"
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            return data;
-        });
-    }
-
-        async function  showRacketPanel() {
-        var r = await GetRacket();
-        
-            showRacketImages(r);
-        }
-
-    function showRacketImages(r) {
-        
-        document.getElementsByClassName("img-fluidd")[0].src = r.images[0].imageUrl;
-        
-        var pr = document.getElementById("product-images").children;
-
-        for (let i = 0; i < pr.length; i++) {
-            if (r.images.length > i) {
-                var e = document.createElement('img');
-                e.src = `${r.images[i].imageUrl}`
-                e.classList.add("w-100");
-            
-                pr[i].appendChild(e);
-            }
-        }
-
-    }
-
-</script>
-
-<script>
-    $('.example-2').extm({
-        position: 'overlay',
-        
-        event: function () {
-            console.log("Plugin 'extm' executed on element with class 'example-2'");
-        }
-    });
-
-</script>
+} else
+{
+    <section>
+        <h1>
+            Aceasta Racketa nu exista
+        </h1>
+    </section>
+}

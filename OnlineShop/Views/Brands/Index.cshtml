@@ -3,16 +3,30 @@
 *@
 @{
 }
+<section id="all-brands">
 
-<a href="rackets/babolat" class="company-name">
-     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Babolat_logo.svg/930px-Babolat_logo.svg.png?20220515164145" alt="babolat">
-</a>
-<a href="rackets/babolat"class="company-name">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Babolat_logo.svg/930px-Babolat_logo.svg.png?20220515164145" alt="">
-</a>
-<a href="rackets/babolat" class="company-name">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Babolat_logo.svg/930px-Babolat_logo.svg.png?20220515164145" alt="">
-</a>
-<a href="rackets/babolat" class="company-name">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Babolat_logo.svg/930px-Babolat_logo.svg.png?20220515164145" alt="">
-</a>
+</section>
+
+
+<script>
+    window.onload = async function () {
+        var data = await fetch("/get-brands", {
+            method: "GET"
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+            return data;
+        });
+
+        var brands = document.getElementById("all-brands");
+        brands.innerHTML = "";
+        console.log(data);
+        for (let x of data) {
+            brands.innerHTML += `\
+                <a class="brand-img" href="#"> \
+                     <img src="${x["image"]}"
+                </a > \
+            `
+        }
+    }
+</script>

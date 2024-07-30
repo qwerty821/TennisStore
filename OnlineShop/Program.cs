@@ -1,26 +1,16 @@
-using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using OnlineShop.Models;
 using OnlineStore.Abstractions;
+using OnlineStore.Models.DbModels;
 using OnlineStore.Repositories;
 using OnlineStore.Services;
-using Microsoft.AspNetCore.Identity;
-using OnlineStore.Models.DbModels;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Hosting;
-using System.Security.Cryptography.X509Certificates;
 
 namespace OnlineShop
 {
     public class Program
     {
-
         public static void Main(string[] args)
         {
-
-            //Host.CreateDefaultBuilder(args)
-            //   .ConfigureWebHostDefaults(webBuilder =>{});
-
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
@@ -36,30 +26,26 @@ namespace OnlineShop
 
             builder.Services.AddDbContext<OnlineStoreContext>(options => options.UseSqlServer(connection));
 
-            builder.Services.AddDefaultIdentity<OnlineStoreUser>(options => {
-
+            builder.Services.AddDefaultIdentity<OnlineStoreUser>(options =>
+            {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireUppercase = false;
 
                 options.SignIn.RequireConfirmedEmail = false;
-
-
             }).AddEntityFrameworkStores<OnlineStoreContext>();
 
             builder.Services.ConfigureApplicationCookie(options =>
-            {
-                options.LoginPath = "/Account/Login";
-                options.ExpireTimeSpan = TimeSpan.FromSeconds(10);
-                options.SlidingExpiration = true;
-            });
+                        {
+                            options.LoginPath = "/Account/Login";
+                            options.ExpireTimeSpan = TimeSpan.FromSeconds(10);
+                            options.SlidingExpiration = true;
+                        });
 
             builder.Services.AddScoped<PasswordHasher<OnlineStoreUser>>();
 
             var app = builder.Build();
-
-
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -1,6 +1,6 @@
 ﻿using OnlineShop.Models;
 using OnlineStore.Abstractions;
-using OnlineStore.Models.RacketModels;
+using OnlineStore.Models.RacketsModels;
 using OnlineStore.Models.RacketsModels;
 
 namespace OnlineStore.Services
@@ -23,7 +23,7 @@ namespace OnlineStore.Services
         {
             return _racketRepository.GetAll(filterOptions);
         }
-        public async Task<Guid> AddRacket(Racket racket)
+        public async Task<Guid> AddRacket(AddRacketModel racket)
         {
             return await _racketRepository.Add(racket);
         }

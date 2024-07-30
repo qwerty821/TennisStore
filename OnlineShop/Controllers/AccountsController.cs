@@ -42,7 +42,7 @@ namespace OnlineStore.Controllers
                 {
                     UserName = model.FirstName,
                     Email = model.Email,
-                    IP = "123.345.567"
+                   // IP = "123.345.567"
                 };
                 //// Store user data in AspNetUsers database table
                 var result = await userManager.CreateAsync(user, model.Password);

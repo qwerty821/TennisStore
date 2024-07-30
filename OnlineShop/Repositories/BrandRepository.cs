@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineStore.Abstractions;
 using OnlineStore.Models.DbModels;
-using OnlineStore.Models.RacketModels;
+using OnlineStore.Models.RacketsModels;
 using OnlineStore.Models.RacketsModels;
 using OnlineStore.SQL;
 

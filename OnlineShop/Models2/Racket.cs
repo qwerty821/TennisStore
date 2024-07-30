@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OnlineStore.Models2;
+﻿namespace OnlineStore.Models2;
 
 public partial class Racket
 {

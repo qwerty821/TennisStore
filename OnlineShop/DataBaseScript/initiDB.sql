@@ -14,6 +14,7 @@ BEGIN
     CREATE TABLE Brands (
 		b_id UNIQUEIDENTIFIER NOT NULL,
 		b_name varchar(50) NOT NULL,
+		b_image varchar(500) NOT NULL,
 
 		CONSTRAINT PK_Brand_Id PRIMARY KEY (b_id), 
 	);
@@ -32,16 +33,17 @@ BEGIN
 
 	Create Table Images (
 		id UNIQUEIDENTIFIER NOT NULL,
+		ref_id UNIQUEIDENTIFIER,
 		image_url varchar(500) NOT NULL
 	);
 
 	
 
-	INSERT INTO BRANDS VALUES (NEWID(), 'Tecnifibre')
-	INSERT INTO BRANDS VALUES (NEWID(), 'Babolat')
-	INSERT INTO BRANDS VALUES (NEWID(), 'Wilson')
-	INSERT INTO BRANDS VALUES (NEWID(), 'Head')
-	INSERT INTO BRANDS VALUES (NEWID(), 'Yonex')
+	INSERT INTO BRANDS VALUES (NEWID(), 'Tecnifibre', 'https://tennisracketball.com/wp-content/uploads/2022/02/Tecnifibre_tennis_brand_logo.jpg')
+	INSERT INTO BRANDS VALUES (NEWID(), 'Babolat', 'https://tennisracketball.com/wp-content/uploads/2022/02/Babolat_tennis_brand_logo.jpg')
+	INSERT INTO BRANDS VALUES (NEWID(), 'Wilson', 'https://tennisracketball.com/wp-content/uploads/2022/02/wilson_tennis_brand_logo.jpg')
+	INSERT INTO BRANDS VALUES (NEWID(), 'Head', 'https://tennisracketball.com/wp-content/uploads/2022/02/Head_tennis_brand_logo.jpg')
+	INSERT INTO BRANDS VALUES (NEWID(), 'Yonex', 'https://tennisracketball.com/wp-content/uploads/2022/02/Yonex_tennis_brand_logo.jpg')
 
 
 	INSERT INTO Rackets VALUES(NEWID(), 'Babolat Pure Aero', (SELECT b_id FROM BRANDS WHERE b_name LIKE 'Babolat' ), 249.99, 'https://www.tennisexpress.com/prodimages/105017-DEFAULT-m.jpg')
@@ -74,12 +76,14 @@ BEGIN
 
 	INSERT INTO Images  
 	VALUES 
-		((SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-1.jpg&nw=910' ),
-		((SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-2.jpg&nw=910' ),
-		((SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-3.jpg&nw=910' ),
-		((SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-4.jpg&nw=910' ),
-		((SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-5.jpg&nw=910' ),
-		((SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-6.jpg&nw=910' )
+		(NEWID(),(SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-1.jpg&nw=910' ),
+		(NEWID(),(SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-2.jpg&nw=910' ),
+		(NEWID(),(SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-3.jpg&nw=910' ),
+		(NEWID(),(SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-4.jpg&nw=910' ),
+		(NEWID(),(SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-5.jpg&nw=910' ),
+		(NEWID(),(SELECT r_id FROM Rackets WHERE r_name = 'Babolat Pure Aero'),'https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPAR98-6.jpg&nw=910' )
 
 END
 GO
+ 
+ 

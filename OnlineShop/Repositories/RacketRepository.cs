@@ -2,7 +2,7 @@
 
 using OnlineStore.Abstractions;
 using OnlineStore.Models.DbModels;
-using OnlineStore.Models.RacketModels;
+using OnlineStore.Models.RacketsModels;
 using OnlineStore.Models.RacketsModels;
 using OnlineStore.SQL;
 
@@ -28,12 +28,13 @@ namespace OnlineStore.Repositories
             return await SQLQueries.getAll(filterOptions);
         }
 
-        public async Task<Guid> Add(Racket racket)
+        public async Task<Guid> Add(AddRacketModel racket)
         {
-            await _context.Rackets.AddAsync(racket); 
-            await _context.SaveChangesAsync();
+            //await _context.Rackets.AddAsync(racket); 
+            //await _context.SaveChangesAsync();
 
-            return racket.RId;
+           return await SQLQueries.addRacket(racket);
+
         }
 
         public async Task<Racket> Get(Guid id)

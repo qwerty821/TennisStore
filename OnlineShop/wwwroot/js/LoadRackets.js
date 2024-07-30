@@ -61,6 +61,14 @@ function ShowRackets(data) {
 
     for (let x of data) {
         racketContent.innerHTML += `\
+        <section class ="racket-section">
+            <div>
+                <a href="/edit-racket/${x["id"]}">
+                    <button type="button" class="btn btn-danger edit-racket">
+                        Edit
+                    </button>
+                </a>
+            </div>
             <a class="a-racket" href="/racket/${x["id"]}"> \
                 <div class="card" style = "width: 18rem;" > \
                     <img src="${x["imageUrl"]}" class="card-img-top" alt=""> \
@@ -73,6 +81,7 @@ function ShowRackets(data) {
                         </div> \
                 </div> \
             </a > \
+        </section>
         `
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineShop.Models;
-using OnlineStore.Models.RacketModels;
+using OnlineStore.Models.RacketsModels;
 using OnlineStore.Models.RacketsModels;
 
 namespace OnlineStore.Abstractions
@@ -9,7 +9,7 @@ namespace OnlineStore.Abstractions
     {
         Task<List<Racket>> GetAll();
         Task<List<Racket>> GetAll(FilterOptions filterOptions);
-        Task<Guid> Add(Racket racket);
+        Task<Guid> Add(AddRacketModel racket);
 
         Task<Racket> Get(Guid id);
     }

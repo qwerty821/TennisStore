@@ -1,0 +1,151 @@
+﻿@using OnlineStore.Models.RacketsModels
+
+@model AddRacketModel
+
+<section id="edit-r" style="width:100%;">
+     
+    <div id="customAlert" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enter your input</h2>
+            <input type="text" id="userInput" placeholder="Type something" data-type="edit">
+            <button id="submitInput">Submit</button>
+        </div>
+    </div>
+   @*  <section id="image-edit-form"> 
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F236047%2Fpexels-photo-236047.jpeg%3Fcs%3Dsrgb%26dl%3Dclouds-cloudy-countryside-236047.jpg%26fm%3Djpg&f=1&nofb=1&ipt=ccc61fc315c53d8f860e6a97447b71a44bc421cea0eb89ad5d18a5279333bb4d&ipo=images" />
+    </section>
+ *@
+    <section class="py-3 py-md-5 py-xl-8" id="add-r-form">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8">
+                    <div class="row gy-5 justify-content-center">
+                        <div class="col-12 col-lg-5">
+                            <form method="post">
+                                <div class="text-danger">
+                                    @if (ViewData.ModelState.Count > 0)
+                                    {
+                                        <ul>
+                                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                            {
+                                                <li>@error.ErrorMessage</li>
+                                            }
+                                        </ul>
+                                    }
+                                </div>
+                                <div class="row gy-3 overflow-hidden">
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input value="" type="text" class="form-control border-0 border-bottom rounded-0" id="Id" placeholder="Id" disabled>
+                                            <label for="Id" class="form-label">Id</label>
+                                            <span class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="Name" type="text" class="form-control border-0 border-bottom rounded-0" id="Name" placeholder="Name">
+                                            <label asp-for="Name" for="Name" class="form-label">Name</label>
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="Price" type="text" class="form-control border-0 border-bottom rounded-0" id="Price" placeholder="Price">
+                                            <label asp-for="Price" for="Price" class="form-label">Price</label>
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="ImageUrl" type="text" class="form-control border-0 border-bottom rounded-0" id="ImageUrl" placeholder="ImageUrl">
+                                            <label asp-for="ImageUrl" for="ImageUrl" class="form-label">Image URL</label>
+                                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <select name="Brand" id="brands" class="form-select" style="padding-top:10px">
+                                                <option value="Null">Null</option>
+                                            </select>
+                                            <span asp-validation-for="Brand" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12" style="display:flex; flex-direction:row; justify-content:center;">
+                                        <div class="d-grid" style="margin: 0px 20px;">
+                                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                                        </div>
+                                        <div class="d-grid" style="margin: 0px 20px;">
+                                            <button type="button" class="btn btn-danger btn-lg" onclick="ResetRacketContent()">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="edit-r-images">
+                <h4>Default image</h4>
+                <div id="edit-r-def-img">
+                    <!--Default image-->
+                </div>
+                 <div>
+                    <h4>Another images</h4>
+                    <button type="button" class="btn btn-success" style="width: 50px;padding: 5px;" onclick="SetAttributes('add')">Add</button>
+
+                 </div>
+                <div id = "edit-r-img">
+                    <!--Images-->
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            window.onload = async function () {
+                var b = await GetBrands();
+                var r = await GetRacket(GetIdFromUrl(window.location.href));
+                setValues(r, b);
+            }
+            
+            var modal = document.getElementById("customAlert");
+            var span = document.getElementsByClassName("close")[0];
+            var submitBtn = document.getElementById("submitInput");
+
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+
+            submitBtn.onclick = function (event) {
+                
+                var e = document.getElementById("userInput");
+                var userInput = e.value;
+                var id = e.getAttribute("data-id");
+                var type = e.getAttribute("data-type");
+                if (type == "edit") {
+                    EditImg(id, userInput);
+                } else if (type == "add") {
+                    AddImage(id, userInput);
+                }
+                modal.style.display = "none";
+            }
+
+
+             
+        </script>
+
+
+    </section>
+    
+</section>
+
+ 

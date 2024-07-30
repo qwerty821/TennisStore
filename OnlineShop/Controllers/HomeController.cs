@@ -23,7 +23,8 @@ namespace OnlineShop.Controllers
          
         public IActionResult Index()
         {
-            return Redirect("/rackets"); ;
+            return Redirect("/rackets");
+            //return View();
         }
 
         public IActionResult Privacy()

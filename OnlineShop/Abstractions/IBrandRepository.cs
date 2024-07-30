@@ -1,4 +1,4 @@
-﻿using OnlineStore.Models.RacketModels;
+﻿using OnlineStore.Models.RacketsModels;
 using OnlineStore.Models.RacketsModels;
 
 namespace OnlineStore.Abstractions
